@@ -5,16 +5,22 @@
 </ion-header>
 
 <ion-content>
+      <div>
+        <ion-img src="https://i.axs.com/2019/05/pacquiao-vs-thurman-tickets_07-20-19_17_5cdf580448522.jpg"></ion-img>
+      </div>
   <ion-card *ngFor="let article of data?.articles" (click)="onGoToNewsDetails(article)"  style="border-radius: 0%">
+  <div style="background-color: #1a2226;color: transparent;font-size: 0.2em;">qwe</div>
     <ion-card-header>
-     
-      <ion-card-title>{{article.title}}</ion-card-title>
-      <ion-card-subtitle>{{article.publishedAt}}</ion-card-subtitle>
+          <ion-card-title style="font-size: 1em;text-align: justify;">
+            {{article.title}}
+          </ion-card-title>
     </ion-card-header>
-  
     <ion-card-content>
+      <div>
       <ion-img [src]='article.urlToImage'></ion-img>
-     <p>{{article.description}}</p>
+      </div>
+      <ion-card-subtitle style="font-size: 0.8em;margin-bottom: 4px;">{{article.publishedAt | date:longDate}}</ion-card-subtitle>
+     <p style="font-size: 0.9em;text-align: justify;">{{article.description | slice:0:101}}..</p>
     </ion-card-content>
   </ion-card>
 </ion-content>

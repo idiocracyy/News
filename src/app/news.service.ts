@@ -5,9 +5,18 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class NewsService {
+  // date: Date;
+  // currentday: number;
+  // currentMonth: number;
+  // currentYear: string;
   currentArticle: any;
   constructor(private http: HttpClient) { }
   getData(){
-    return this.http.get('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=58bc328f0b074b43b2c724bce8c6156b');
+    // this.date = new Date();
+    // this.currentYear = this.date.getFullYear()+"";
+    // this.currentMonth = this.date.getMonth()+1;
+    // this.currentday = this.date.getDay();
+    // console.log(this.currentYear+"-"+this.currentMonth+"-"+this.currentday);
+    return this.http.get('https://newsapi.org/v2/everything?q=sports&sortBy=publishedAt&apiKey=58bc328f0b074b43b2c724bce8c6156b');
   }
 }
