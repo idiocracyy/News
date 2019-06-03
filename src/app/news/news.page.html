@@ -23,4 +23,10 @@
      <p style="font-size: 0.9em;text-align: justify;">{{article.description | slice:0:101}}..</p>
     </ion-card-content>
   </ion-card>
+
+  <ion-infinite-scroll (ionInfinite)="LoadMoreNews($event)">
+  <ion-infinite-scroll-content loadingSpinner="bubble" loadingText="loading..">
+
+  </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
