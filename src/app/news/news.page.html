@@ -1,38 +1,44 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>news</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="animated fadeIn fast">
-    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content
-          pullingIcon="arrow-dropdown"
-          pullingText="Pull to refresh"
-          refreshingSpinner="circles"
-          refreshingText="Refreshing...">
-        </ion-refresher-content>
-      </ion-refresher>
-  <div>
-    <ion-img src="https://i.axs.com/2019/05/pacquiao-vs-thurman-tickets_07-20-19_17_5cdf580448522.jpg"></ion-img>
-  </div>
-  <ion-card class="selector noshadow animated fadeIn slow" *ngFor="let article of data?.articles" (click)="onGoToNewsDetails(article.url)"  style="border-radius: 0%">
-    <ion-img [src]='article.urlToImage'></ion-img>
-    <ion-card-header>
-      <ion-card-title style="font-size: 1em;text-align: justify;margin-bottom: -30px;">
-        {{article.title}}
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content style="margin-top: 0;">
-      <ion-card-subtitle style="font-size: 0.8em;margin-bottom: 4px;">{{article.publishedAt | date:longDate}}</ion-card-subtitle>
-      <p style="font-size: 0.9em;text-align: justify;">{{article.description | slice:0:101}}..</p>
-    </ion-card-content>
-    <div style="background-color: #1a2226;color: transparent;font-size: 0.2em;">.</div>
-  </ion-card>
+    <ion-toolbar>
+      <ion-title>news</ion-title>
+    </ion-toolbar>
+  </ion-header>
   
-  <ion-infinite-scroll (ionInfinite)="LoadMoreNews($event)">
-    <ion-infinite-scroll-content loadingSpinner="bubble" loadingText="loading..">
-      
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
-</ion-content>
+  <ion-content class="animated fadeIn fast" [scrollEvents]="true">
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            pullingText="Pull to refresh"
+            refreshingSpinner="circles"
+            refreshingText="Refreshing...">
+          </ion-refresher-content>
+        </ion-refresher>
+    <div style="margin-bottom: -15px;">
+      <ion-img src="https://i.axs.com/2019/05/pacquiao-vs-thurman-tickets_07-20-19_17_5cdf580448522.jpg"></ion-img>
+    </div>
+    <ion-card class="selector noshadow animated fadeIn slow" *ngFor="let article of data?.articles" (click)="onGoToNewsDetails(article.url)"  style="border-radius: 0%;margin-bottom: -15px;">
+      <ion-img [src]='article.urlToImage'></ion-img>
+      <ion-card-header>
+        <ion-card-title style="font-size: 1em;text-align: justify;margin-bottom: -30px;">
+          {{article.title}}
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content style="margin-top: 0;">
+        <ion-card-subtitle style="font-size: 0.8em;margin-bottom: 4px;">{{article.publishedAt | date:longDate}}</ion-card-subtitle>
+        <p style="font-size: 0.9em;text-align: justify;">{{article.description | slice:0:101}}..</p>
+      </ion-card-content>
+      <div style="background-color: #1a2226;color: transparent;font-size: 0.2em;">.</div>
+    </ion-card>
+    <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button ng-click="scrollTo('top')">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab> -->
+    
+    <ion-infinite-scroll (ionInfinite)="LoadMoreNews($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubble" loadingText="loading..">
+        
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-content>
+  

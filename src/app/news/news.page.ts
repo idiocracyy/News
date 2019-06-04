@@ -3,6 +3,7 @@ import { NewsService } from '../news.service';
 import { Router } from '@angular/router';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
+
 @Component({
   selector: 'app-news',
   templateUrl: './news.page.html',
@@ -11,7 +12,6 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 export class NewsPage implements OnInit {
   data: any;
   page: number = 1;
-  
   constructor(private newsService: NewsService, private router: Router, private iab: InAppBrowser) { }
   
   ngOnInit() {
@@ -54,6 +54,11 @@ export class NewsPage implements OnInit {
       this.page = 1;
       event.target.complete();
     }, 2000);
+  }
+
+
+  scrollToTop(scrollDuration) {
+   
   }
 }
 

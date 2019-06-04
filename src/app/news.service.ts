@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 
-const API_URL = environment.apiUrl;
-const API_KEY = environment.apiKey;
+const API_KEY ='58bc328f0b074b43b2c724bce8c6156b';
 @Injectable({
   providedIn: 'root'
 })
+
 export class NewsService {
   date: Date;
   currentday: number;
