@@ -14,4 +14,8 @@
 .selector.noshadow {
 	box-shadow: 1px;
 }
-
+.selector.details {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
