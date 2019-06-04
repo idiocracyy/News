@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="animated fadeIn fast">
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
         <ion-refresher-content
           pullingIcon="arrow-dropdown"
@@ -16,14 +16,14 @@
   <div>
     <ion-img src="https://i.axs.com/2019/05/pacquiao-vs-thurman-tickets_07-20-19_17_5cdf580448522.jpg"></ion-img>
   </div>
-  <ion-card class="selector noshadow" *ngFor="let article of data?.articles" (click)="onGoToNewsDetails(article.url)"  style="border-radius: 0%">
+  <ion-card class="selector noshadow animated fadeIn slow" *ngFor="let article of data?.articles" (click)="onGoToNewsDetails(article.url)"  style="border-radius: 0%">
     <ion-img [src]='article.urlToImage'></ion-img>
     <ion-card-header>
-      <ion-card-title style="font-size: 1em;text-align: justify;">
+      <ion-card-title style="font-size: 1em;text-align: justify;margin-bottom: -30px;">
         {{article.title}}
       </ion-card-title>
     </ion-card-header>
-    <ion-card-content style="margin-top: -30px;">
+    <ion-card-content style="margin-top: 0;">
       <ion-card-subtitle style="font-size: 0.8em;margin-bottom: 4px;">{{article.publishedAt | date:longDate}}</ion-card-subtitle>
       <p style="font-size: 0.9em;text-align: justify;">{{article.description | slice:0:101}}..</p>
     </ion-card-content>
