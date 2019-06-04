@@ -1,11 +1,14 @@
 <ion-header>
   <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="news"></ion-back-button>
+        </ion-buttons>
     <ion-title>newsdetails</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-card>
+    <ion-card class="selector noshadow">
         <ion-card-header>
          
           <ion-card-title>{{article.title}}</ion-card-title>

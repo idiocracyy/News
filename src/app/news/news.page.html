@@ -8,20 +8,18 @@
       <div>
         <ion-img src="https://i.axs.com/2019/05/pacquiao-vs-thurman-tickets_07-20-19_17_5cdf580448522.jpg"></ion-img>
       </div>
-  <ion-card *ngFor="let article of data?.articles" (click)="onGoToNewsDetails(article)"  style="border-radius: 0%">
-  <div style="background-color: #1a2226;color: transparent;font-size: 0.2em;">.</div>
+  <ion-card class="selector noshadow" *ngFor="let article of data?.articles" (click)="onGoToNewsDetails(article)"  style="border-radius: 0%">
+    <ion-img [src]='article.urlToImage'></ion-img>
     <ion-card-header>
-          <ion-card-title style="font-size: 1em;text-align: justify;">
-            {{article.title}}
-          </ion-card-title>
-    </ion-card-header>
+        <ion-card-title style="font-size: 1em;text-align: justify;">
+          {{article.title}}
+        </ion-card-title>
+  </ion-card-header>
     <ion-card-content>
-      <div>
-      <ion-img [src]='article.urlToImage'></ion-img>
-      </div>
       <ion-card-subtitle style="font-size: 0.8em;margin-bottom: 4px;">{{article.publishedAt | date:longDate}}</ion-card-subtitle>
      <p style="font-size: 0.9em;text-align: justify;">{{article.description | slice:0:101}}..</p>
     </ion-card-content>
+  <div style="background-color: #1a2226;color: transparent;font-size: 0.2em;">.</div>
   </ion-card>
 
   <ion-infinite-scroll (ionInfinite)="LoadMoreNews($event)">
